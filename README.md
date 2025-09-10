@@ -9,4 +9,4 @@ In this project, I will demonstrate how to access S3 bucket using VPC endpoint. 
 
 # Architecture
 
-![Alt text](https://user-images.githubusercontent.com/12345/image-url.png)
+![Alt text](https://github.com/diptishegar/vpc-endpoints-demo/blob/main/architecture-today.png)
