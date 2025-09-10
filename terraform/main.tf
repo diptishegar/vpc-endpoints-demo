@@ -178,6 +178,27 @@ resource "aws_instance" "my-ec2" {
 
 resource "aws_s3_bucket" "my-s3-bucket" {
   bucket = "my-vpc-endpoint-2025-dips"
+policy = jsonencode({
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:*",
+      "Resource": [
+        "arn:aws:s3:::your-bucket-name",
+        "arn:aws:s3:::your-bucket-name/*"
+      ],
+      "Condition": {
+        "StringNotEquals": {
+          "aws:sourceVpce": "endpoint ID"
+        }
+      }
+    }
+  ]
+})
+
+
   tags = {
     Name = "my-S3-bucket"
   }
